@@ -62,8 +62,6 @@ const getConversionRate = (from, to, amount) => {
     if (type === "USD" && from !== to) {
       const conversion = amount * directLookup[from] * directLookup[to];
 
-      console.log(type);
-
       return toFixedDecimal(conversion);
     }
 
