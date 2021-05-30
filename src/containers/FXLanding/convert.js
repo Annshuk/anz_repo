@@ -45,14 +45,16 @@ const toFixedDecimal = (value) => parseFloat(value).toFixed(2);
  */
 const getConversionRate = (from, to, amount) => {
   const keysMap = Object.keys(currencyMatrix);
-  const indexValue = keysMap.indexOf(from);
+  const indexValue = keysMap.indexOf(to);
 
-  const map = currencyMatrix[from];
+  const map = currencyMatrix[to];
   const value = keysMap[indexValue];
 
-  const type = lookup[map[to]];
+  const type = lookup[map[from]];
 
   const join = `${from}${to}`;
+
+  console.log(type, to, from, map[to]);
 
   if (from !== to) {
     if (type === "invert") {
