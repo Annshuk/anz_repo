@@ -1,7 +1,7 @@
 import currencyMatrix from "./currencyMatrix";
 
 const directLookup = {
-  USD: 1.0,
+  USD: 0.8371,
   AUD: 0.8371,
   CAD: 0.8711,
   CNY: 6.1715,
@@ -54,13 +54,13 @@ const getConversionRate = (from, to, amount) => {
       return toFixedDecimal(conversion);
     }
 
-    if (type === "EUR" && from !== to) {
+    if (type === "EUR") {
       const conversion = (directLookup[type] / directLookup[from]) * amount;
 
       return toFixedDecimal(conversion);
     }
 
-    if (type === "USD" && from !== to) {
+    if (type === "USD") {
       const conversion = amount * directLookup[from] * directLookup[to];
 
       return toFixedDecimal(conversion);
