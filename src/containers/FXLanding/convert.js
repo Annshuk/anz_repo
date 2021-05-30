@@ -41,7 +41,8 @@ const getConversionRate = (from, to, amount) => {
 
   if (from !== to) {
     if (type === "invert") {
-      const conversion = amount / directLookup[from];
+      const base_jpy = from === "JPY" ? directLookup[from] : directLookup[to];
+      const conversion = amount / base_jpy;
 
       return toFixedDecimal(conversion);
     }
