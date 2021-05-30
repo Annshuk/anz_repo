@@ -1,0 +1,17 @@
+{ "data":
+  [
+    { "label": "USD", "base": "1", "value": "USDUSD" },
+    { "label": "AUD", "base": "0.8371", "value": "AUDUSD" },
+    { "label": "CAD", "base": "0.8711", "value": "CADUSD" },
+    { "label": "CNY", "base": "6.1715", "value": "CNYUSD" },
+    { "label": "EUR", "base": "1.2315", "value": "EURUSD" },
+    { "label": "GBP", "base": "1.5683", "value": "GBPUSD" },
+    { "label": "NZD", "base": "0.7750", "value": "NZDUSD" },
+    { "label": "JPY", "base": "119.95", "value": "USDJPY" },
+    { "label": "CZK", "base": "27.6028", "value": "EURCZK" },
+    { "label": "DKK", "base": "7.4405", "value": "EURDKK" },
+    { "label": "NOK", "base": "8.6651", "value": "EURNOK" }
+  ]
+}
+
+
