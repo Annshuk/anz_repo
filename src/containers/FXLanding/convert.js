@@ -39,16 +39,15 @@ const getConversionRate = (from, to, amount) => {
 
   const type = lookup[map[to]];
 
-  const base_jpy = to === "JPY" ? directLookup[to] : directLookup[from];
-
   if (from !== to) {
     if (type === "invert") {
-      const conversion = amount / base_jpy;
+      const conversion = amount / directLookup[from];
 
       return toFixedDecimal(conversion);
     }
 
     if (type === "direct") {
+      const base_jpy = to === "JPY" ? directLookup[to] : directLookup[from];
       const conversion = base_jpy * amount;
 
       return toFixedDecimal(conversion);
@@ -62,6 +61,8 @@ const getConversionRate = (from, to, amount) => {
 
     if (type === "USD" && from !== to) {
       const conversion = amount * directLookup[from] * directLookup[to];
+
+      console.log(type);
 
       return toFixedDecimal(conversion);
     }
