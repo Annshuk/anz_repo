@@ -1,5 +1,18 @@
 import currencyMatrix from "./currencyMatrix";
 
+const direct = {
+  AUDUSD: 0.8371,
+  CADUSD: 0.8711,
+  USDCNY: 6.1715,
+  EURUSD: 1.2315,
+  GBPUSD: 1.5683,
+  NZDUSD: 0.775,
+  USDJPY: 119.95,
+  EURCZK: 27.6028,
+  EURDKK: 7.4405,
+  EURNOK: 8.6651,
+};
+
 const directLookup = {
   USD: 0.8371,
   AUD: 0.8371,
@@ -39,6 +52,8 @@ const getConversionRate = (from, to, amount) => {
 
   const type = lookup[map[to]];
 
+  const join = `${from}${to}`;
+
   if (from !== to) {
     if (type === "invert") {
       const base_jpy = from === "JPY" ? directLookup[from] : directLookup[to];
@@ -48,22 +63,21 @@ const getConversionRate = (from, to, amount) => {
     }
 
     if (type === "direct") {
-      const base_jpy = to === "JPY" ? directLookup[to] : directLookup[from];
-      const conversion = base_jpy * amount;
+      const conversion = direct[join] * amount;
 
       return toFixedDecimal(conversion);
     }
 
     if (type === "EUR") {
       const conversion = (directLookup[type] / directLookup[from]) * amount;
-
+      console.log(type);
       return toFixedDecimal(conversion);
     }
 
     if (type === "USD") {
       const crossVia = directLookup[type] * directLookup[to];
       const conversion = amount * directLookup[from] * crossVia;
-
+      console.log(type);
       return toFixedDecimal(conversion);
     }
 
