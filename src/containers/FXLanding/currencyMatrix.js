@@ -50,21 +50,3 @@ const currencyMatrix = {
 };
 
 export default currencyMatrix;
-
-/*
-  GBP: { ...baseUSD, USD: "D" },
-  JPY: { ...baseUSD, USD: "Inv" },
-  NOK: { ...baseMix },
-  NZD: { ...baseUSD },
-  USD: {
-    AUD: "Inv",
-    CAD: "Inv",
-    CNY: "Inv",
-    CZK: "EUR",
-    DKK: "EUR",
-    EUR: "Inv",
-    GBP: "Inv",
-    JPY: "D",
-    NOK: "EUR",
-    NZD: "Inv",
-  },*/

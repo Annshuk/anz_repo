@@ -54,8 +54,6 @@ const getConversionRate = (from, to, amount) => {
 
   const join = `${from}${to}`;
 
-  console.log(type, to, from, map[to]);
-
   if (from !== to) {
     if (type === "invert") {
       const base_jpy = from === "JPY" ? directLookup[from] : directLookup[to];
@@ -72,14 +70,14 @@ const getConversionRate = (from, to, amount) => {
 
     if (type === "EUR") {
       const conversion = (directLookup[type] / directLookup[from]) * amount;
-      console.log(type);
+
       return toFixedDecimal(conversion);
     }
 
     if (type === "USD") {
-      const crossVia = directLookup[type] * directLookup[to];
-      const conversion = amount * directLookup[from] * crossVia;
-      console.log(type);
+      const crossVia = directLookup[from] * directLookup[to];
+      const conversion = amount * crossVia;
+
       return toFixedDecimal(conversion);
     }
 
