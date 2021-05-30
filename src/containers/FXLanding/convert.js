@@ -61,7 +61,8 @@ const getConversionRate = (from, to, amount) => {
     }
 
     if (type === "USD") {
-      const conversion = amount * directLookup[from] * directLookup[to];
+      const crossVia = directLookup[type] * directLookup[to];
+      const conversion = amount * directLookup[from] * crossVia;
 
       return toFixedDecimal(conversion);
     }
